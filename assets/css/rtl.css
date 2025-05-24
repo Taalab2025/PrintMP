@@ -1,0 +1,104 @@
+/**
+ * RTL Specific Styles
+ * file path: assets/css/rtl.css
+ */
+
+/* RTL Layout Styles */
+[dir="rtl"] {
+    /* Text alignment */
+    .text-left {
+        text-align: right;
+    }
+
+    .text-right {
+        text-align: left;
+    }
+
+    /* Margin and padding */
+    .ml-1, .ml-2, .ml-3, .ml-4, .ml-5, .ml-6, .ml-8, .ml-10, .ml-12 {
+        margin-left: 0;
+    }
+
+    .mr-1, .mr-2, .mr-3, .mr-4, .mr-5, .mr-6, .mr-8, .mr-10, .mr-12 {
+        margin-right: 0;
+    }
+
+    .ml-1 { margin-right: 0.25rem; }
+    .ml-2 { margin-right: 0.5rem; }
+    .ml-3 { margin-right: 0.75rem; }
+    .ml-4 { margin-right: 1rem; }
+    .ml-5 { margin-right: 1.25rem; }
+    .ml-6 { margin-right: 1.5rem; }
+    .ml-8 { margin-right: 2rem; }
+    .ml-10 { margin-right: 2.5rem; }
+    .ml-12 { margin-right: 3rem; }
+
+    .mr-1 { margin-left: 0.25rem; }
+    .mr-2 { margin-left: 0.5rem; }
+    .mr-3 { margin-left: 0.75rem; }
+    .mr-4 { margin-left: 1rem; }
+    .mr-5 { margin-left: 1.25rem; }
+    .mr-6 { margin-left: 1.5rem; }
+    .mr-8 { margin-left: 2rem; }
+    .mr-10 { margin-left: 2.5rem; }
+    .mr-12 { margin-left: 3rem; }
+
+    /* Flex direction */
+    .flex-row {
+        flex-direction: row-reverse;
+    }
+
+    /* Border radius adjustments for certain components */
+    .rounded-l-lg {
+        border-radius: 0;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+
+    .rounded-r-lg {
+        border-radius: 0;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    /* Transform and rotate for icons */
+    .fa-arrow-right:before {
+        content: "\f060"; /* fa-arrow-left */
+    }
+
+    .fa-arrow-left:before {
+        content: "\f061"; /* fa-arrow-right */
+    }
+
+    /* Positioning */
+    .left-0 {
+        left: auto;
+        right: 0;
+    }
+
+    .right-0 {
+        right: auto;
+        left: 0;
+    }
+
+    /* Input and form elements */
+    input, textarea {
+        text-align: right;
+    }
+
+    /* Tables */
+    th, td {
+        text-align: right;
+    }
+}
+
+/* RTL specific components */
+[dir="rtl"] .rtl-mirror {
+    transform: scaleX(-1);
+}
+
+/* Language selector specific */
+[dir="rtl"] .language-dropdown {
+    left: 0;
+    right: auto;
+}

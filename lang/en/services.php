@@ -1,0 +1,116 @@
+<?php
+/**
+ * English Services Translation File
+ *
+ * File path: lang/en/services.php
+ *
+ * Contains all translations related to services in English
+ */
+
+return [
+    // Services Index Page
+    'all_services' => 'All Services',
+    'services_by' => 'Services by :vendor',
+    'search_results' => 'Search Results for ":term"',
+    'applied_filters' => 'Applied Filters',
+    'clear_all_filters' => 'Clear All Filters',
+    'category' => 'Category',
+    'vendor' => 'Vendor',
+    'search' => 'Search',
+    'price' => 'Price',
+    'from' => 'From',
+    'up_to' => 'Up to',
+    'showing_results' => 'Showing :from-:to of :total results',
+    'sort_by' => 'Sort by',
+    'newest' => 'Newest',
+    'price_low_to_high' => 'Price: Low to High',
+    'price_high_to_low' => 'Price: High to Low',
+    'categories' => 'Categories',
+    'search_placeholder' => 'Search services...',
+    'price_range' => 'Price Range',
+    'min_price' => 'Min Price',
+    'max_price' => 'Max Price',
+    'apply_filter' => 'Apply Filter',
+    'featured_vendors' => 'Featured Vendors',
+    'view_all_vendors' => 'View All Vendors',
+    'no_services_found' => 'No Services Found',
+    'try_different_filters' => 'Try different filters or search terms',
+    'featured' => 'Featured',
+    'by' => 'by',
+    'view_details' => 'View Details',
+    'min_qty' => 'Min. Order: :qty',
+
+    // Service Detail Page
+    'base_price' => 'Base Price',
+    'min_order' => 'Minimum Order',
+    'units' => 'units',
+    'production_time' => 'Production Time',
+    'days' => 'days',
+    'available_options' => 'Available Options',
+    'request_quote' => 'Request Quote',
+    'vendor_profile' => 'Vendor Profile',
+    'related_services' => 'Related Services',
+    'quick_quote' => 'Quick Quote Request',
+    'quick_quote_description' => 'Interested in this service? Request a quote to get detailed pricing information from the vendor.',
+    'no_images_available' => 'No images available',
+
+    // Vendor Services Page
+    'view_all_vendor_services' => 'View All Services',
+
+    // Service Management for Vendors
+    'add_new_service' => 'Add New Service',
+    'edit_service' => 'Edit Service',
+    'service_name' => 'Service Name',
+    'service_description' => 'Service Description',
+    'select_category' => 'Select Category',
+    'base_price_info' => 'Base price (before options)',
+    'min_order_qty_info' => 'Minimum order quantity',
+    'production_time_info' => 'Production time (days)',
+    'service_options' => 'Service Options',
+    'add_option' => 'Add Option',
+    'option_name' => 'Option Name',
+    'option_type' => 'Option Type',
+    'option_required' => 'Required',
+    'option_values' => 'Option Values',
+    'add_value' => 'Add Value',
+    'value_label' => 'Value Label',
+    'value_price' => 'Additional Price',
+    'remove_option' => 'Remove Option',
+    'remove_value' => 'Remove Value',
+    'main_image' => 'Main Image',
+    'gallery_images' => 'Gallery Images',
+    'add_more_images' => 'Add More Images',
+    'save_service' => 'Save Service',
+    'cancel' => 'Cancel',
+    'service_status' => 'Service Status',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+    'featured_service' => 'Featured Service',
+    'featured_info' => 'Featured services appear at the top of search results',
+    'created_successfully' => 'Service created successfully',
+    'updated_successfully' => 'Service updated successfully',
+    'error_saving' => 'Error saving service. Please try again.',
+    'not_vendor' => 'You need to be a registered vendor to manage services',
+    'not_authorized' => 'You are not authorized to edit this service',
+
+    // Option Types
+    'dropdown' => 'Dropdown',
+    'radio' => 'Radio Buttons',
+    'checkbox' => 'Checkboxes',
+    'text' => 'Text Input',
+    'textarea' => 'Textarea',
+
+    // Service Categories
+    'business_cards' => 'Business Cards',
+    'flyers' => 'Flyers & Brochures',
+    'posters' => 'Posters & Banners',
+    'stationery' => 'Stationery',
+    'packaging' => 'Packaging',
+    'stickers' => 'Stickers & Labels',
+    'promotional' => 'Promotional Items',
+    'apparel' => 'Apparel Printing',
+    'signage' => 'Signage',
+    'photobooks' => 'Photo Books & Albums',
+    'invitations' => 'Invitations & Cards',
+    'other' => 'Other Printing Services',
+];

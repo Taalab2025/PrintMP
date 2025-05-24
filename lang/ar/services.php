@@ -1,0 +1,116 @@
+<?php
+/**
+ * Arabic Services Translation File
+ *
+ * File path: lang/ar/services.php
+ *
+ * Contains all translations related to services in Arabic
+ */
+
+return [
+    // Services Index Page
+    'all_services' => 'جميع الخدمات',
+    'services_by' => 'خدمات بواسطة :vendor',
+    'search_results' => 'نتائج البحث عن ":term"',
+    'applied_filters' => 'التصفيات المطبقة',
+    'clear_all_filters' => 'مسح جميع التصفيات',
+    'category' => 'الفئة',
+    'vendor' => 'البائع',
+    'search' => 'بحث',
+    'price' => 'السعر',
+    'from' => 'من',
+    'up_to' => 'حتى',
+    'showing_results' => 'عرض :from-:to من :total نتيجة',
+    'sort_by' => 'ترتيب حسب',
+    'newest' => 'الأحدث',
+    'price_low_to_high' => 'السعر: من الأقل للأعلى',
+    'price_high_to_low' => 'السعر: من الأعلى للأقل',
+    'categories' => 'الفئات',
+    'search_placeholder' => 'ابحث عن خدمات...',
+    'price_range' => 'نطاق السعر',
+    'min_price' => 'الحد الأدنى للسعر',
+    'max_price' => 'الحد الأقصى للسعر',
+    'apply_filter' => 'تطبيق التصفية',
+    'featured_vendors' => 'البائعون المميزون',
+    'view_all_vendors' => 'عرض جميع البائعين',
+    'no_services_found' => 'لم يتم العثور على خدمات',
+    'try_different_filters' => 'جرب استخدام تصفيات أو كلمات بحث مختلفة',
+    'featured' => 'مميز',
+    'by' => 'بواسطة',
+    'view_details' => 'عرض التفاصيل',
+    'min_qty' => 'الحد الأدنى للطلب: :qty',
+
+    // Service Detail Page
+    'base_price' => 'السعر الأساسي',
+    'min_order' => 'الحد الأدنى للطلب',
+    'units' => 'وحدات',
+    'production_time' => 'وقت الإنتاج',
+    'days' => 'أيام',
+    'available_options' => 'الخيارات المتاحة',
+    'request_quote' => 'طلب عرض سعر',
+    'vendor_profile' => 'ملف البائع',
+    'related_services' => 'خدمات ذات صلة',
+    'quick_quote' => 'طلب عرض سعر سريع',
+    'quick_quote_description' => 'مهتم بهذه الخدمة؟ اطلب عرض سعر للحصول على معلومات تسعير مفصلة من البائع.',
+    'no_images_available' => 'لا توجد صور متاحة',
+
+    // Vendor Services Page
+    'view_all_vendor_services' => 'عرض جميع الخدمات',
+
+    // Service Management for Vendors
+    'add_new_service' => 'إضافة خدمة جديدة',
+    'edit_service' => 'تعديل الخدمة',
+    'service_name' => 'اسم الخدمة',
+    'service_description' => 'وصف الخدمة',
+    'select_category' => 'اختر الفئة',
+    'base_price_info' => 'السعر الأساسي (قبل الخيارات)',
+    'min_order_qty_info' => 'الحد الأدنى لكمية الطلب',
+    'production_time_info' => 'وقت الإنتاج (أيام)',
+    'service_options' => 'خيارات الخدمة',
+    'add_option' => 'إضافة خيار',
+    'option_name' => 'اسم الخيار',
+    'option_type' => 'نوع الخيار',
+    'option_required' => 'مطلوب',
+    'option_values' => 'قيم الخيار',
+    'add_value' => 'إضافة قيمة',
+    'value_label' => 'عنوان القيمة',
+    'value_price' => 'سعر إضافي',
+    'remove_option' => 'إزالة الخيار',
+    'remove_value' => 'إزالة القيمة',
+    'main_image' => 'الصورة الرئيسية',
+    'gallery_images' => 'صور المعرض',
+    'add_more_images' => 'إضافة المزيد من الصور',
+    'save_service' => 'حفظ الخدمة',
+    'cancel' => 'إلغاء',
+    'service_status' => 'حالة الخدمة',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+    'featured_service' => 'خدمة مميزة',
+    'featured_info' => 'تظهر الخدمات المميزة في أعلى نتائج البحث',
+    'created_successfully' => 'تم إنشاء الخدمة بنجاح',
+    'updated_successfully' => 'تم تحديث الخدمة بنجاح',
+    'error_saving' => 'خطأ في حفظ الخدمة. يرجى المحاولة مرة أخرى.',
+    'not_vendor' => 'تحتاج إلى أن تكون بائعاً مسجلاً لإدارة الخدمات',
+    'not_authorized' => 'غير مصرح لك بتعديل هذه الخدمة',
+
+    // Option Types
+    'dropdown' => 'قائمة منسدلة',
+    'radio' => 'أزرار اختيار',
+    'checkbox' => 'مربعات اختيار',
+    'text' => 'إدخال نص',
+    'textarea' => 'منطقة نص',
+
+    // Service Categories
+    'business_cards' => 'بطاقات العمل',
+    'flyers' => 'المنشورات والكتيبات',
+    'posters' => 'الملصقات واللافتات',
+    'stationery' => 'القرطاسية',
+    'packaging' => 'التغليف',
+    'stickers' => 'الملصقات والعلامات',
+    'promotional' => 'المواد الترويجية',
+    'apparel' => 'طباعة الملابس',
+    'signage' => 'اللافتات',
+    'photobooks' => 'كتب الصور والألبومات',
+    'invitations' => 'الدعوات والبطاقات',
+    'other' => 'خدمات طباعة أخرى',
+];
