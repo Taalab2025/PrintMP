@@ -6,9 +6,9 @@
 
 // Database settings
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'egypt_printing_marketplace');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_NAME', 'u671773932_Matbaa');
+define('DB_USER', 'u671773932_Matbaa');
+define('DB_PASS', 'u671773932_M');
 define('DB_CHARSET', 'utf8mb4');
 define('DB_PORT', '3306');
 

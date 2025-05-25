@@ -184,7 +184,8 @@ class AuthController {
             'email' => $_POST['email'],
             'password' => $_POST['password'],
             'role' => $_POST['role'],
-            'language' => $this->localization->getLanguage(),
+            'language' => $this->localization->getCurrentLanguage(),
+
             'require_email_verification' => true
         ];
 

@@ -61,7 +61,7 @@ class App
     private function initializeLocalization()
     {
         require_once CORE_PATH . '/Localization.php';
-        $this->localization = new Localization($this->session);
+        $this->localization = new Localization(); // Correct: No arguments needed as it reads from cookie/browser
     }
 
     /**
@@ -139,21 +139,32 @@ class App
 
     /**
      * Helper to get a model instance
+     * @param string $modelName Name of the model class
+     * @return object Instance of the model
+     * @throws Exception if model file not found
      */
     public function getModel($modelName)
     {
         $modelFile = MODELS_PATH . '/' . $modelName . '.php';
 
         if (!file_exists($modelFile)) {
-            throw new Exception("Model not found: $modelName");
+            // Log this error or handle more gracefully in production
+            throw new Exception("Model not found: $modelName at $modelFile");
         }
 
         require_once $modelFile;
+        // Ensure class name matches model name
+        if (!class_exists($modelName)) {
+             throw new Exception("Model class not found: $modelName in $modelFile");
+        }
         return new $modelName($this->db);
     }
 
     /**
      * Helper to get a controller instance
+     * @param string $controllerName Name of the controller class (without 'Controller' suffix)
+     * @return object Instance of the controller
+     * @throws Exception if controller file or class not found
      */
     public function getController($controllerName)
     {
@@ -161,34 +172,55 @@ class App
         $controllerClass = $controllerName . 'Controller';
 
         if (!file_exists($controllerFile)) {
-            throw new Exception("Controller not found: $controllerName");
+            // Log this error or handle more gracefully in production
+            throw new Exception("Controller file not found: $controllerName at $controllerFile");
         }
 
         require_once $controllerFile;
-        return new $controllerClass($this);
+        if (!class_exists($controllerClass)) {
+            throw new Exception("Controller class not found: $controllerClass in $controllerFile");
+        }
+        return new $controllerClass($this); // Pass the App instance
     }
 
     /**
      * Render a view
+     * @param string $view The path to the view file relative to VIEWS_PATH (e.g., 'pages/home')
+     * @param array $data Data to be extracted and made available to the view
+     * @return string The rendered HTML content
+     * @throws Exception if view file not found
      */
     public function renderView($view, $data = [])
     {
         $viewFile = VIEWS_PATH . '/' . $view . '.php';
 
         if (!file_exists($viewFile)) {
-            throw new Exception("View not found: $view");
+            // In a production environment, you might want to show a generic error page
+            // or log this and show a user-friendly message.
+            // For debugging, an exception is clear.
+            // If ErrorController is robust and doesn't itself call renderView in a loop:
+            // $errorController = $this->getController('Error');
+            // $errorController->notFound("View file not found: " . $viewFile);
+            // return ''; // Or exit if ErrorController handles output and exit
+            throw new Exception("View not found: $viewFile (looking for view: $view)");
         }
 
-        // Extract data for view
+        // Make the App instance available as $app in the view's scope
+        $data['app'] = $this;
+
+        // Extract data to make keys available as variables in the view
         extract($data);
 
         // Start output buffering
         ob_start();
 
-        // Include the view
+        // Include the view file
+        // All variables from extract($data) and $app are now in scope for $viewFile
         include $viewFile;
 
-        // Return the output
-        return ob_get_clean();
+        // Get the content and clean the buffer
+        $content = ob_get_clean();
+
+        return $content;
     }
 }

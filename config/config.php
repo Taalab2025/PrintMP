@@ -24,20 +24,20 @@ define('MODELS_PATH', BASE_PATH . '/models');
 define('CONTROLLERS_PATH', BASE_PATH . '/controllers');
 define('VIEWS_PATH', BASE_PATH . '/views');
 define('ASSETS_PATH', BASE_PATH . '/assets');
-define('UPLOADS_PATH', ASSETS_PATH . '/uploads');
+define('UPLOADS_PATH', ASSETS_PATH . '/uploads'); // Note: ASSETS_PATH uses BASE_PATH
 define('LANG_PATH', BASE_PATH . '/lang');
 
 // URL paths
-define('BASE_URL', 'http://localhost/egypt-printing-marketplace');
-define('ASSETS_URL', BASE_URL . '/assets');
-define('UPLOADS_URL', ASSETS_URL . '/uploads');
+define('BASE_URL', 'https://matbaa.taalabprojs.com/');
+define('ASSETS_URL', BASE_URL . '/assets');          // This will become https://matbaa.taalabprojs.com//assets (double slash)
+define('UPLOADS_URL', ASSETS_URL . '/uploads');       // This will become https://matbaa.taalabprojs.com//assets/uploads
 
 // Session settings
 define('SESSION_NAME', 'egypt_printing_marketplace');
 define('SESSION_LIFETIME', 7200); // 2 hours
 define('SESSION_PATH', '/');
 define('SESSION_DOMAIN', '');
-define('SESSION_SECURE', false);
+define('SESSION_SECURE', false); // CRITICAL: Should be true for HTTPS
 define('SESSION_HTTP_ONLY', true);
 
 // Default settings
@@ -54,3 +54,11 @@ define('FREE_QUOTE_LIMIT', 10);
 
 // Load other configuration files
 require_once CONFIG_PATH . '/database.php';
+
+// echo "DEBUG: Reached end of config.php<br>"; // Your debug line
+// if (defined('ENVIRONMENT')) {
+//  echo "DEBUG: ENVIRONMENT is: " . ENVIRONMENT . "<br>";
+// } else {
+//  echo "DEBUG: ENVIRONMENT IS NOT DEFINED!<br>";
+// }
+?>

@@ -19,6 +19,7 @@ class Localization {
     public function __construct($language = null) {
         // Use provided language, cookie, or default
         $this->language = $this->validateLanguage($language);
+        
 
         // Load core translations
         $this->loadTranslations('general');

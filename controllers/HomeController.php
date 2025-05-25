@@ -19,57 +19,57 @@ class HomeController
     /**
      * Home page
      */
-    public function index()
-    {
-        // Get categories for homepage
-        $db = $this->app->getDB();
-        $localization = $this->app->getLocalization();
-        $lang = $localization->getLanguage();
+   public function index()
+{
+    // Get categories for homepage
+    $db = $this->app->getDB();
+    $localization = $this->app->getLocalization();
+    $lang = $localization->getCurrentLanguage();
 
-        // Get featured categories
-        $categories = $db->fetchAll(
-            "SELECT id, name_$lang as name, image, slug
-             FROM categories
-             WHERE status = 'active' AND parent_id IS NULL
-             ORDER BY display_order
-             LIMIT 8"
-        );
+    // Get featured categories
+    $categories = $db->fetchAll(
+        "SELECT id, name_$lang as name, icon, slug_$lang as slug 
+         FROM categories
+         WHERE status = 'active' AND parent_id IS NULL
+         ORDER BY sort_order ASC 
+         LIMIT 8"
+    );
 
-        // Get featured services
-        $services = $db->fetchAll(
-            "SELECT s.id, s.title_$lang as title, s.base_price, v.company_name_$lang as company_name,
-                    (SELECT file_path FROM service_media WHERE service_id = s.id ORDER BY display_order LIMIT 1) as image
-             FROM services s
-             JOIN vendors v ON s.vendor_id = v.id
-             WHERE s.status = 'active' AND s.is_featured = 1
-             ORDER BY s.created_at DESC
-             LIMIT 8"
-        );
+    // Get featured services
+    $services = $db->fetchAll(
+        "SELECT s.id, s.title_$lang as title, s.base_price, v.company_name_$lang as company_name,
+                (SELECT file_path FROM service_media WHERE service_id = s.id AND type = 'main' LIMIT 1) as image 
+         FROM services s
+         JOIN vendors v ON s.vendor_id = v.id
+         WHERE s.status = 'active' AND s.is_featured = 1
+         ORDER BY s.is_featured DESC, s.created_at DESC 
+         LIMIT 8"
+    );
 
-        // Get featured vendors
-        $vendors = $db->fetchAll(
-            "SELECT v.id, v.company_name_$lang as company_name, v.logo, v.avg_rating,
-                    (SELECT COUNT(*) FROM services WHERE vendor_id = v.id AND status = 'active') as service_count
-             FROM vendors v
-             JOIN users u ON v.user_id = u.id
-             WHERE u.status = 'active' AND v.subscription_status = 'paid'
-             ORDER BY v.avg_rating DESC
-             LIMIT 6"
-        );
+    // Get featured vendors
+    $vendors = $db->fetchAll(
+        "SELECT v.id, v.company_name_$lang as company_name, v.logo_path as logo, v.avg_rating,
+                (SELECT COUNT(*) FROM services WHERE vendor_id = v.id AND status = 'active') as service_count
+         FROM vendors v
+         JOIN users u ON v.user_id = u.id
+         WHERE u.status = 'active' AND v.status = 'active' AND v.is_featured = 1 AND v.subscription_plan != 'free'
+         ORDER BY v.avg_rating DESC, v.created_at DESC
+         LIMIT 6"
+    );
 
-        // Render the view
-        $data = [
-            'categories' => $categories,
-            'services' => $services,
-            'vendors' => $vendors,
-            'title' => $localization->t('welcome')
-        ];
+    // Render the view
+    $data = [
+        'categories' => $categories,
+        'services' => $services, // Now $services is defined
+        'vendors' => $vendors,
+        'title' => $localization->t('welcome')
+    ];
 
-        echo $this->app->renderView('layouts/main', [
-            'content' => $this->app->renderView('pages/home', $data),
-            'title' => $localization->t('welcome')
-        ]);
-    }
+    echo $this->app->renderView('layouts/main', [
+        'content' => $this->app->renderView('pages/home', $data),
+        'title' => $localization->t('welcome')
+    ]);
+}
 
     /**
      * About page

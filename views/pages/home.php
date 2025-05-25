@@ -11,8 +11,7 @@
 $pageTitle = $this->localization->t('general.home_page_title');
 ?>
 
-<?php include 'views/components/header.php'; ?>
-
+<?php include VIEWS_PATH . '/components/header.php'; ?>
 <!-- Hero Section -->
 <section class="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
     <div class="container mx-auto px-4">
@@ -281,4 +280,4 @@ $pageTitle = $this->localization->t('general.home_page_title');
     </div>
 </section>
 
-<?php include 'views/components/footer.php'; ?>
+<?php include VIEWS_PATH . '/components/footer.php'; ?>
